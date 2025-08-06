@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Prasadraj V</title>
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Your custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Google Fonts for Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Glowing Network Canvas Background -->
+    <canvas id="neuralCanvas"></canvas>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+  <div class="logo">
+        <span class="logo-icon"><i class="fas fa-user"></i></span> <!-- New icon here -->
+        PORTFOLIO
+    </div>
+            <!-- Hamburger menu button for mobile -->
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="main-nav">
+                <a href="#about" class="active">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+                <a href="https://github.com/prasadraj26" target="_blank" class="github-btn">Github</a>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <section class="hero" id="about">
+                <div class="hero-content">
+                    <h1>Hi, I am<br>Prasadraj V</h1>
+                    <h2>I am a <span class="highlight">Web Developer<span class="typed-cursor">|</span></span></h2>
+                    <p class="hero-desc">
+                        A skilled React developer with a strong portfolio, passionate about staying updated on frontend tech.
+                        Collaborative and committed to quality, you thrive in dynamic teams. Eager to contribute creativity and bring innovative ideas to life.
+                    </p>
+                    <a href="assets/resume.pdf" class="resume-btn" target="_blank">Check Resume</a>
+                </div>
+                <div class="hero-image">
+                    <img src="images/1000031304.png" alt="Profile Photo" />
+                </div>
+            </section>            <!-- Skills Section -->
+            <section id="skills">
+                <h2>Skills</h2>
+                <p>Here are some of my skills on which I have learnt.</p>
+                <div class="skills-container">
+                    <div class="skill-card">
+                        <h3>Frontend</h3>
+                        <div class="skill-grid">
+                            <div class="skill-item"><i class="fa-brands fa-html5"></i>HTML</div>
+                            <div class="skill-item"><i class="fa-brands fa-css3-alt"></i>CSS</div>
+                            <div class="skill-item"><i class="fa-brands fa-js"></i>JavaScript</div>
+                            <div class="skill-item"><i class="fa-brands fa-bootstrap"></i>Bootstrap</div>
+                            <div class="skill-item"><i class="fa-brands fa-react"></i>React Js</div>
+                            <div class="skill-item"><i class="fa-brands fa-reacteurope"></i>Redux</div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Others</h3>
+                        <div class="skill-grid">
+                            <div class="skill-item"><i class="fa-brands fa-git-alt"></i>Git</div>
+                            <div class="skill-item"><i class="fa-brands fa-github"></i>GitHub</div>
+                            <div class="skill-item"><i class="fa-solid fa-cloud"></i>Netlify</div>
+                            <div class="skill-item"><i class="fa-solid fa-code"></i>VS Code</div>
+                            <div class="skill-item"><i class="fa-solid fa-bolt"></i>Vite</div>
+                            <div class="skill-item"><i class="fa-brands fa-chrome"></i>Chrome DevTools</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience">
+                <h2>Experience</h2>
+                <p>Details about your work experience go here.</p>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects">
+                <h2>Projects</h2>
+                <p>Details about your projects go here.</p>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education">
+                <h2>Education</h2>
+                <p>Details about your education go here.</p>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h2>Get In Touch</h2>
+                        <p>Feel free to reach out for collaborations or just to say hello! I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
+                        <div class="contact-details">
+                            <a href="mailto:prasad2611v@gmail.com" class="contact-detail-item">
+                                <i class="fa-solid fa-envelope"></i>
+                                <span>prasad2611v@gmail.com</span>
+                            </a>
+                            <a href="tel:6384153370" class="contact-detail-item">
+                                <i class="fa-solid fa-phone"></i>
+                                <span>6384153370</span>
+                            </a>
+                            <div class="contact-detail-item">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Salem, TamilNadu, India</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://github.com/prasadraj26" target="_blank" class="social-link"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://linkedin.com/" target="_blank" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://twitter.com/" target="_blank" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="https://instagram.com/" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                <form action="https://formspree.io/f/xwpqrzjz" method="POST" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message:</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="send-btn">
+                        Send Message
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                    <div id="form-messages" class="form-messages"></div>
+                </form>
+            </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Prasadraj V. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Your JavaScript for the neural background -->
+    <script src="js/particles.js"></script>
+    <!-- New JavaScript for navigation toggle -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

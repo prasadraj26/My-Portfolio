@@ -1,0 +1,631 @@
+/* --- Global Styles --- */
+:root {
+    --bg-color: #0d1117;
+    --card-bg-color: rgba(30, 36, 45, 0.8);
+    --hover-card-bg-color: rgba(30, 36, 45, 0.95);
+    --primary-color: #58a6ff;
+    --text-color: #c9d1d9;
+    --heading-color: #e6edf3;
+    --border-color: rgba(56, 139, 253, 0.3);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding-top: 80px; /* Add padding to prevent content from hiding behind the fixed header */
+}
+
+/* --- Canvas Background --- */
+#neuralCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.7;
+    transition: opacity 0.5s ease;
+}
+
+/* --- Container for Centering --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Header --- */
+header {
+    position: fixed; /* Make the header stick to the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the header is always on top */
+    background-color: var(--bg-color);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--heading-color);
+}
+.logo-icon i {
+    font-size: 1.2rem; /* Adjust size as needed */
+    color: var(--primary-color); /* Ensure it uses your primary color */
+}
+.logo-icon {
+    color: var(--primary-color);
+    font-size: 0.8rem; /* Keep your desired size for the character */
+    margin-right: 5px;
+    display: inline-block; /* Allows us to set width/height */
+    width: 1em; /* Set width equal to font-size for a square box */
+    height: 1em; /* Set height equal to font-size for a square box */
+    line-height: 1em; /* Vertically center the character within its box */
+    text-align: center; /* Horizontally center the character */
+    border-radius: 50%; /* Makes the square box a circle */
+    background-color: transparent;
+}
+
+.menu-toggle {
+    display: none; /* Hidden by default on desktop */
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.main-nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 5px 10px;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.github-btn {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.github-btn:hover {
+    background-color: #79aee8;
+    transform: translateY(-2px);
+}
+
+/* --- Main Content Sections --- */
+section {
+    background-color: var(--card-bg-color);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--border-color);
+    padding: 40px;
+    margin: 40px 0;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+section:hover {
+    background-color: var(--hover-card-bg-color);
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--heading-color);
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-top: 10px;
+}
+
+p {
+    margin-top: 15px;
+    color: var(--text-color);
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+/* --- Hero Section --- */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    min-height: calc(100vh - 80px); /* Adjust min-height to account for the fixed header */
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(88, 166, 255, 0.4);
+}
+
+.hero-desc {
+    max-width: 600px;
+    font-size: 1.1rem;
+}
+
+.resume-btn {
+    display: inline-block;
+    margin-top: 25px;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.resume-btn:hover {
+    background-color: #79aee8;
+    transform: translateY(-2px);
+}
+
+/* --- Skills Section --- */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.skill-card {
+    background-color: var(--bg-color);
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 300px; /* Ensures cards don't get too small before wrapping */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.skill-card h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.skill-grid {
+    display: grid;
+    /* This is the key for 3x3 alignment on larger screens */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    color: var(--primary-color); /* Text color on hover */
+}
+
+/* Skill Icons - General Styling */
+.skill-item i {
+    font-size: 48px; /* Larger size for skill icons */
+    margin-bottom: 5px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.skill-item:hover i {
+    transform: translateY(-5px); /* Icon also moves up with the item */
+}
+
+/* Skill Icons - Specific Colors (Font Awesome brands and solids) */
+.skill-item .fa-html5 { color: #E34F26; } /* HTML5 Orange */
+.skill-item .fa-css3-alt { color: #1572B6; } /* CSS3 Blue */
+.skill-item .fa-js { color: #F7DF1E; } /* JavaScript Yellow */
+.skill-item .fa-bootstrap { color: #7952B3; } /* Bootstrap Purple */
+.skill-item .fa-react { color: #61DAFB; } /* React Blue */
+.skill-item .fa-reacteurope { color: #764ABC; } /* Redux Purple (using a React-related icon) */
+/* .skill-item .fa-toolbox { color: #FF6700; } /* Redux-Toolkit - generic tool icon, orange - REMOVED */
+.skill-item .fa-git-alt { color: #F05032; } /* Git Orange */
+.skill-item .fa-github { color: #FFFFFF; } /* GitHub White */
+.skill-item .fa-cloud { color: #00C7B7; } /* Netlify - generic cloud icon, teal */
+.skill-item .fa-code { color: #007ACC; } /* VS Code Blue */
+.skill-item .fa-bolt { color: #FFD43B; } /* Vite - generic lightning bolt, yellow */
+.skill-item .fa-chrome { color: #4285F4; } /* Chrome Blue */
+
+
+/* --- Contact Section --- */
+#contact {
+    /* Inherits padding, margin, background, border-radius from general 'section' style */
+}
+
+.contact-content {
+    display: flex;
+    gap: 40px; /* Space between the info column and the form column */
+}
+
+.contact-info {
+    flex: 1; /* Allows this column to take up available space */
+    display: flex; /* Added for vertical alignment of content */
+    flex-direction: column;
+    justify-content: space-between; /* Pushes social links to the bottom */
+}
+
+.contact-info h2 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.contact-details {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between each contact detail item */
+}
+
+.contact-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between icon and text */
+    font-size: 1.1rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-detail-item:hover {
+    color: var(--primary-color);
+}
+
+/* Styling for Font Awesome icons in contact details */
+.contact-detail-item i {
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+/* Specific colors for contact detail icons */
+.contact-detail-item .fa-envelope {
+    color: #DB4437; /* Google Mail Red */
+}
+.contact-detail-item .fa-phone {
+    color: #4CAF50; /* Green for phone */
+}
+.contact-detail-item .fa-location-dot {
+    color: #EA4335; /* Google Maps Red */
+}
+
+.contact-detail-item:hover i {
+    color: #fff; /* White on hover for contrast */
+}
+
+.social-links {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px; /* Space between social icons */
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    background-color: #1a1e24; /* Dark background for the icon container */
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: var(--primary-color); /* Primary color background on hover */
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Styling for Font Awesome social icons */
+.social-link i {
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+/* Specific brand colors for social icons */
+.social-link .fa-github {
+    color: #FFFFFF; /* GitHub White */
+}
+.social-link .fa-linkedin-in {
+    color: #0A66C2; /* LinkedIn Blue */
+}
+.social-link .fa-twitter {
+    color: #1DA1F2; /* Twitter Blue */
+}
+.social-link .fa-instagram {
+    color: #E1306C; /* Instagram Pink */
+}
+
+.social-link:hover i {
+    color: var(--bg-color); /* Icon color changes to background color on hover for contrast */
+}
+
+.contact-form {
+    flex: 1; /* Allows this column to take up available space */
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between form groups */
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    background-color: #1a1e24; /* Dark background for input fields */
+    border: 1px solid #30363d; /* Subtle border */
+    color: var(--text-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color); /* Highlight border on focus */
+}
+
+.send-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Space between text and icon */
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--heading-color); /* Text color for the button */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #58a6ff 0%, #007bff 100%); /* Gradient background */
+    transition: transform 0.3s ease;
+}
+
+.send-btn:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.send-btn i { /* Styling for the send icon within the button */
+    font-size: 20px;
+    color: var(--heading-color); /* Inherits color from button text */
+}
+/* Add this to your css/style.css file, perhaps near the .contact-form styles */
+
+.form-messages {
+    margin-top: 20px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.form-messages.success {
+    background-color: #28a745; /* Green for success */
+    color: #fff;
+    opacity: 1;
+}
+
+.form-messages.error {
+    background-color: #dc3545; /* Red for error */
+    color: #fff;
+    opacity: 1;
+}
+
+/* Optional: Adjust label styles if needed, they were previously implicit */
+.form-group label {
+    display: block; /* Make labels appear on their own line */
+    margin-bottom: 8px;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    .main-nav {
+        /* Hide nav by default on smaller screens */
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px; /* Below header */
+        left: 0;
+        background-color: var(--bg-color);
+        border-top: 1px solid var(--border-color);
+        padding-bottom: 10px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    }
+
+    .main-nav.active {
+        display: flex; /* Show when active */
+    }
+
+    .main-nav a {
+        margin: 10px 0;
+        padding: 10px 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: block; /* Show hamburger menu */
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        min-height: auto;
+        padding: 40px 20px; /* Add padding back to hero section */
+    }
+
+    .hero-content {
+        order: 2; /* Content below image on mobile */
+        max-width: 100%; /* Content takes full width */
+        padding: 0; /* Remove specific padding, section padding applies */
+    }
+
+    .hero-image-bg {
+        position: static; /* Remove absolute positioning */
+        width: 100%; /* Image takes full width */
+        height: 300px; /* Fixed height for mobile image */
+        margin-bottom: 30px; /* Space between image and content */
+        border-radius: 10px; /* Rounded corners for the image background */
+        filter: none; /* Remove filters for a clearer image on mobile */
+        opacity: 1; /* Full opacity on mobile */
+    }
+
+    .hero-buttons {
+        justify-content: center; /* Center buttons on mobile */
+    }
+
+    .contact-content {
+        flex-direction: column; /* Stack columns vertically on medium screens */
+    }
+
+    .skill-grid {
+        /* On medium screens (e.g., tablets), switch to 2 columns */
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .skill-item i {
+        font-size: 36px; /* Slightly smaller icons on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    body {
+        padding-top: 0; /* No padding-top needed as header is static */
+    }
+
+    .logo, .github-btn {
+        margin: 10px 0;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .skills-container {
+        flex-direction: column; /* Stack skill cards vertically on smaller screens */
+    }
+
+    .skill-card {
+        min-width: auto; /* Allow cards to shrink */
+    }
+    .skill-grid {
+        /* On small screens, keep 2 columns or switch to 1 if preferred */
+        grid-template-columns: repeat(2, 1fr); /* You can change to repeat(1, 1fr) for single column */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    .main-nav a {
+        margin: 5px 0;
+    }
+    .skill-grid {
+        /* On very small screens (e.g., mobile phones), switch to 1 column */
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .skill-item i {
+        font-size: 32px; /* Even smaller icons on mobile */
+    }
+    .contact-detail-item i {
+        font-size: 20px;
+    }
+    .social-link i {
+        font-size: 18px;
+    }
+    .hero-buttons {
+        flex-direction: column; /* Stack buttons vertically on very small screens */
+    }
+    .btn {
+        width: 100%; /* Full width buttons */
+    }
+}
